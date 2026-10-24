@@ -5,6 +5,15 @@ import {hasStayLink} from '../../engine/links';
 import {add,days,ordered,span,currentJourney,currentLeg,currentScenario,legBounds,STAY_COLORS,formatDate,MONTHS,WEEK} from '../model/state';
 import {Icon} from './Icon';
 
+// Browser globals shared by the calendar shell and world map.
+// Keep these declarations available to the production TypeScript build.
+declare global {
+  interface Window {
+    TravelCanvasDebug?: unknown;
+    TRAVEL_CANVAS_WORLD?: Array<Array<[number, number]>>;
+  }
+}
+
 type Interval={id:string;legId:string;kind:'stay'|'leg'|'placeholder'|'ghost';start:string;end:string;label:string;color:string;legColor:string;locked:boolean;muted:boolean;status:string;conflict:boolean;prev?:Stay;next?:Stay;linkBefore:boolean;linkAfter:boolean};
 type Segment=Interval&{col:number;len:number;lane:number;isStart:boolean;isEnd:boolean};
 const overlapped=(a:string,b:string,c:string,d:string)=>a<d&&c<b;
@@ -16,7 +25,7 @@ export function intervals(data:PlanningState):Interval[]{
  for(let i=0;i<route.length;i++){const s=route[i],prev=route[i-1],next=route[i+1];out.push({id:s.id,legId:leg.id,kind:'stay',start:s.start,end:s.end,label:s.place.name,color:s.color||STAY_COLORS[i%STAY_COLORS.length],legColor:String(leg.color),locked:s.locked||leg.locked,muted,status:s.status||'placed',conflict:collisions.has(s.id),prev,next,linkBefore:!!prev&&hasStayLink(s.id,prev.id,scenario),linkAfter:!!next&&hasStayLink(s.id,next.id,scenario)});}
  }return out;
 }
-export function calendarWeeks(data:PlanningState):string[]{const b=span(data),d0=new Date(`${b.start.slice(0,7)}-01T00:00:00Z`);d0.setUTCMonth(d0.getUTCMonth()-1);const d1=new Date(`${b.end.slice(0,7)}-01T00:00:00Z`);d1.setUTCMonth(d1.getUTCMonth()+3);let first=isoAt(d0.getTime()/86400000),to=isoAt(d1.getTime()/86400000);first=add(first,-(d0.getUTCDay()+6)%7);const weeks=[];for(let d=first;d<to&&weeks.length<190;d=add(d,7))weeks.push(d);return weeks;}
+export function calendarWeeks(data:PlanningState):string[]{const b=span(data),d0=new Date(`${b.start.slice(0,7)}-01T00:00:00Z`);d0.setUTCMonth(d0.getUTCMonth()-1);const d1=new Date(`${b.end.slice(0,7)}-01T00:00:00Z`);d1.setUTCMonth(d1.getUTCMonth()+3);let first=isoAt(d0.getTime()/86400000),to=isoAt(d1.getTime()/86400000);first=add(first,-(d0.getUTCDay()+6)%7);const weeks: string[]=[];for(let d=first;d<to&&weeks.length<190;d=add(d,7))weeks.push(d);return weeks;}
 function segmentsForWeek(intervals:Interval[],start:string):Segment[]{const finish=add(start,7),segs:Segment[]=[],laneEnds:number[]=[];
  for(const it of intervals){const s=it.start>start?it.start:start,e=it.end<finish?it.end:finish;if(s>=e)continue;
  const col=days(start,s),len=days(s,e);let lane=laneEnds.findIndex(n=>n<=col);if(lane<0){lane=laneEnds.length;laneEnds.push(0);}laneEnds[lane]=col+len;segs.push({...it,col,len,lane,isStart:s===it.start,isEnd:e===it.end});}
