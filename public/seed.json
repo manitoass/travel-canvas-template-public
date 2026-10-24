@@ -1,0 +1,585 @@
+{
+  "title": "Winter–Summer 2027",
+  "view": "leg",
+  "selectedLegId": "sea",
+  "selectedStayId": "sea3",
+  "activeJourneyVersionId": "journey-base",
+  "journeyVersions": [
+    {
+      "id": "journey-base",
+      "name": "Main journey",
+      "legs": [
+        {
+          "id": "europe",
+          "title": "Europe",
+          "color": "#5186c9",
+          "start": "2027-01-08",
+          "end": "2027-02-09",
+          "locked": false,
+          "activeScenarioId": "europe-sc1",
+          "scenarios": [
+            {
+              "id": "europe-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "eu1",
+                  "place": {
+                    "name": "Paris",
+                    "country": "France",
+                    "lat": 48.8566,
+                    "lon": 2.3522,
+                    "flag": "🇫🇷",
+                    "id": "geo-paris-france"
+                  },
+                  "start": "2027-01-08",
+                  "end": "2027-01-17",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "eu2",
+                  "place": {
+                    "name": "Strasbourg",
+                    "country": "France",
+                    "lat": 48.5734,
+                    "lon": 7.7521,
+                    "flag": "🇫🇷",
+                    "id": "geo-strasbourg-france"
+                  },
+                  "start": "2027-01-17",
+                  "end": "2027-01-22",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "eu3",
+                  "place": {
+                    "name": "Rome",
+                    "country": "Italy",
+                    "lat": 41.9028,
+                    "lon": 12.4964,
+                    "flag": "🇮🇹",
+                    "id": "geo-rome-italy"
+                  },
+                  "start": "2027-01-22",
+                  "end": "2027-02-01",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                },
+                {
+                  "id": "eu4",
+                  "place": {
+                    "name": "Florence",
+                    "country": "Italy",
+                    "lat": 43.7696,
+                    "lon": 11.2558,
+                    "flag": "🇮🇹",
+                    "id": "geo-florence-italy"
+                  },
+                  "start": "2027-02-01",
+                  "end": "2027-02-09",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#4d83d1",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        },
+        {
+          "id": "sea",
+          "title": "Southeast Asia",
+          "color": "#159e8b",
+          "start": "2027-02-10",
+          "end": "2027-03-15",
+          "locked": false,
+          "activeScenarioId": "sea-sc1",
+          "scenarios": [
+            {
+              "id": "sea-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "sea1",
+                  "place": {
+                    "name": "Bangkok",
+                    "country": "Thailand",
+                    "lat": 13.7563,
+                    "lon": 100.5018,
+                    "flag": "🇹🇭",
+                    "id": "geo-bangkok-thailand"
+                  },
+                  "start": "2027-02-10",
+                  "end": "2027-02-15",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "sea2",
+                  "place": {
+                    "name": "Siem Reap",
+                    "country": "Cambodia",
+                    "lat": 13.3671,
+                    "lon": 103.8448,
+                    "flag": "🇰🇭",
+                    "id": "geo-siemreap-cambodia"
+                  },
+                  "start": "2027-02-15",
+                  "end": "2027-02-21",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "sea3",
+                  "place": {
+                    "name": "Luang Prabang",
+                    "country": "Laos",
+                    "lat": 19.8833,
+                    "lon": 102.1333,
+                    "flag": "🇱🇦",
+                    "id": "geo-luangprabang-laos"
+                  },
+                  "start": "2027-02-21",
+                  "end": "2027-02-27",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                },
+                {
+                  "id": "sea4",
+                  "place": {
+                    "name": "Hanoi",
+                    "country": "Vietnam",
+                    "lat": 21.0278,
+                    "lon": 105.8342,
+                    "flag": "🇻🇳",
+                    "id": "geo-hanoi-vietnam"
+                  },
+                  "start": "2027-02-27",
+                  "end": "2027-03-06",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#4d83d1",
+                  "linkNextId": null
+                },
+                {
+                  "id": "sea5",
+                  "place": {
+                    "name": "Hoi An",
+                    "country": "Vietnam",
+                    "lat": 15.8801,
+                    "lon": 108.338,
+                    "flag": "🇻🇳",
+                    "id": "geo-hoian-vietnam"
+                  },
+                  "start": "2027-03-06",
+                  "end": "2027-03-15",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#cd6688",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [
+                {
+                  "id": "mvlpjycvpe5y1l",
+                  "place": {
+                    "name": "Chiang Mai",
+                    "country": "Thailand",
+                    "lat": 18.7883,
+                    "lon": 98.9853,
+                    "flag": "🇹🇭",
+                    "id": "geo-chiangmai-thailand"
+                  }
+                },
+                {
+                  "id": "mvlpjycvkpgtpc",
+                  "place": {
+                    "name": "Ninh Binh",
+                    "country": "Vietnam",
+                    "lat": 20.2506,
+                    "lon": 105.9745,
+                    "flag": "🇻🇳",
+                    "id": "geo-ninhbinh-vietnam"
+                  }
+                },
+                {
+                  "id": "mvlpjycv547duz",
+                  "place": {
+                    "name": "Hue",
+                    "country": "Vietnam",
+                    "lat": 16.4637,
+                    "lon": 107.5909,
+                    "flag": "🇻🇳",
+                    "id": "geo-hue-vietnam"
+                  }
+                }
+              ],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        },
+        {
+          "id": "japan",
+          "title": "Japan",
+          "color": "#9876c4",
+          "start": "2027-03-20",
+          "end": "2027-04-18",
+          "locked": false,
+          "activeScenarioId": "japan-sc1",
+          "scenarios": [
+            {
+              "id": "japan-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "jp1",
+                  "place": {
+                    "name": "Tokyo",
+                    "country": "Japan",
+                    "lat": 35.6762,
+                    "lon": 139.6503,
+                    "flag": "🇯🇵",
+                    "id": "geo-tokyo-japan"
+                  },
+                  "start": "2027-03-20",
+                  "end": "2027-03-27",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "jp2",
+                  "place": {
+                    "name": "Kanazawa",
+                    "country": "Japan",
+                    "lat": 36.5613,
+                    "lon": 136.6562,
+                    "flag": "🇯🇵",
+                    "id": "geo-kanazawa-japan"
+                  },
+                  "start": "2027-03-27",
+                  "end": "2027-04-01",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "jp3",
+                  "place": {
+                    "name": "Kyoto",
+                    "country": "Japan",
+                    "lat": 35.0116,
+                    "lon": 135.7681,
+                    "flag": "🇯🇵",
+                    "id": "geo-kyoto-japan"
+                  },
+                  "start": "2027-04-01",
+                  "end": "2027-04-10",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                },
+                {
+                  "id": "jp4",
+                  "place": {
+                    "name": "Osaka",
+                    "country": "Japan",
+                    "lat": 34.6937,
+                    "lon": 135.5023,
+                    "flag": "🇯🇵",
+                    "id": "geo-osaka-japan"
+                  },
+                  "start": "2027-04-10",
+                  "end": "2027-04-18",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#4d83d1",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [
+                {
+                  "id": "mvlpjycvma6r7n",
+                  "place": {
+                    "name": "Takayama",
+                    "country": "Japan",
+                    "lat": 36.1461,
+                    "lon": 137.2522,
+                    "flag": "🇯🇵",
+                    "id": "geo-takayama-japan"
+                  }
+                },
+                {
+                  "id": "mvlpjycvwhqpbf",
+                  "place": {
+                    "name": "Nara",
+                    "country": "Japan",
+                    "lat": 34.6851,
+                    "lon": 135.8048,
+                    "flag": "🇯🇵",
+                    "id": "geo-nara-japan"
+                  }
+                }
+              ],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        },
+        {
+          "id": "taiwan",
+          "title": "Taiwan",
+          "color": "#d69a4f",
+          "start": "2027-04-19",
+          "end": "2027-05-05",
+          "locked": false,
+          "activeScenarioId": "taiwan-sc1",
+          "scenarios": [
+            {
+              "id": "taiwan-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "tw1",
+                  "place": {
+                    "name": "Taipei",
+                    "country": "Taiwan",
+                    "lat": 25.033,
+                    "lon": 121.5654,
+                    "flag": "🇹🇼",
+                    "id": "geo-taipei-taiwan"
+                  },
+                  "start": "2027-04-19",
+                  "end": "2027-04-26",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "tw2",
+                  "place": {
+                    "name": "Tainan",
+                    "country": "Taiwan",
+                    "lat": 22.9997,
+                    "lon": 120.227,
+                    "flag": "🇹🇼",
+                    "id": "geo-tainan-taiwan"
+                  },
+                  "start": "2027-04-26",
+                  "end": "2027-05-01",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "tw3",
+                  "place": {
+                    "name": "Kaohsiung",
+                    "country": "Taiwan",
+                    "lat": 22.6273,
+                    "lon": 120.3014,
+                    "flag": "🇹🇼",
+                    "id": "geo-kaohsiung-taiwan"
+                  },
+                  "start": "2027-05-01",
+                  "end": "2027-05-05",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        },
+        {
+          "id": "california",
+          "title": "California",
+          "color": "#d06c85",
+          "start": "2027-05-08",
+          "end": "2027-05-22",
+          "locked": false,
+          "activeScenarioId": "california-sc1",
+          "scenarios": [
+            {
+              "id": "california-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "ca1",
+                  "place": {
+                    "name": "Los Angeles",
+                    "country": "USA",
+                    "lat": 34.0522,
+                    "lon": -118.2437,
+                    "flag": "🇺🇸",
+                    "id": "geo-losangeles-usa"
+                  },
+                  "start": "2027-05-08",
+                  "end": "2027-05-13",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "ca2",
+                  "place": {
+                    "name": "Ventura",
+                    "country": "USA",
+                    "lat": 34.2746,
+                    "lon": -119.229,
+                    "flag": "🇺🇸",
+                    "id": "geo-ventura-usa"
+                  },
+                  "start": "2027-05-13",
+                  "end": "2027-05-18",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "ca3",
+                  "place": {
+                    "name": "San Diego",
+                    "country": "USA",
+                    "lat": 32.7157,
+                    "lon": -117.1611,
+                    "flag": "🇺🇸",
+                    "id": "geo-sandiego-usa"
+                  },
+                  "start": "2027-05-18",
+                  "end": "2027-05-22",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        },
+        {
+          "id": "pnw",
+          "title": "Pacific Northwest",
+          "color": "#508f9c",
+          "start": "2027-05-24",
+          "end": "2027-06-17",
+          "locked": false,
+          "activeScenarioId": "pnw-sc1",
+          "scenarios": [
+            {
+              "id": "pnw-sc1",
+              "name": "Main plan",
+              "stays": [
+                {
+                  "id": "pn1",
+                  "place": {
+                    "name": "Portland",
+                    "country": "USA",
+                    "lat": 45.5152,
+                    "lon": -122.6784,
+                    "flag": "🇺🇸",
+                    "id": "geo-portland-usa"
+                  },
+                  "start": "2027-05-24",
+                  "end": "2027-06-01",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#d28d38",
+                  "linkNextId": null
+                },
+                {
+                  "id": "pn2",
+                  "place": {
+                    "name": "Seattle",
+                    "country": "USA",
+                    "lat": 47.6062,
+                    "lon": -122.3321,
+                    "flag": "🇺🇸",
+                    "id": "geo-seattle-usa"
+                  },
+                  "start": "2027-06-01",
+                  "end": "2027-06-09",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#159d92",
+                  "linkNextId": null
+                },
+                {
+                  "id": "pn3",
+                  "place": {
+                    "name": "Vancouver",
+                    "country": "Canada",
+                    "lat": 49.2827,
+                    "lon": -123.1207,
+                    "flag": "🇨🇦",
+                    "id": "geo-vancouver-canada"
+                  },
+                  "start": "2027-06-09",
+                  "end": "2027-06-17",
+                  "status": "placed",
+                  "locked": false,
+                  "color": "#9070c3",
+                  "linkNextId": null
+                }
+              ],
+              "ideas": [],
+              "connections": {},
+              "stayLinks": [],
+              "stayLinksV07": true,
+              "stayLinksInitialized": true
+            }
+          ],
+          "linkNextId": null
+        }
+      ],
+      "title": "Winter–Summer 2027"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "compilerOptions": {"target":"ES2022","module":"ES2022","moduleResolution":"Bundler","lib":["ES2022","DOM"],"rootDir":"src","outDir":"public/assets","strict":true,"skipLibCheck":true,"jsx":"react","esModuleInterop":true,"allowSyntheticDefaultImports":true,"noEmitOnError":true,"resolveJsonModule":true},
+  "include": ["src/web/**/*.ts","src/web/**/*.tsx","src/engine/**/*.ts"]
+}

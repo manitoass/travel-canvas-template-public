@@ -1,0 +1,39 @@
+{
+  "name": "travel-canvas-cloudflare",
+  "private": true,
+  "version": "1.1.0-one-click-template",
+  "type": "module",
+  "engines": {
+    "node": ">=22.16"
+  },
+  "scripts": {
+    "engine:compile": "tsc -p tsconfig.engine.json",
+    "build": "npm run engine:compile && npm test && npm run check:types && npm run build:assets",
+    "check:types": "tsc -p tsconfig.prod.json",
+    "test:cloud": "node --test tests/cloud/*.test.mjs",
+    "dev": "npm run engine:compile && npm run build:assets && wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/*.test.cjs tests/cloud/*.test.mjs tests/ux/*.test.mjs && node scripts/static-preflight.mjs && node scripts/template-safety.mjs",
+    "build:verified": "npm run build",
+    "build:assets": "vite build --config vite.production.config.mjs && node scripts/copy-static.mjs",
+    "check:template": "node scripts/template-safety.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.8.3",
+    "vite": "8.3.4",
+    "wrangler": "4.152.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "DB": {
+        "description": "Cloudflare automatically creates the private D1 database and inserts the ID during deployment. Do not create a database or paste an ID."
+      }
+    }
+  }
+}

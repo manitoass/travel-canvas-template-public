@@ -1,0 +1,3551 @@
+{
+  "source": "immutable legacy/app.js",
+  "version": "v0.9",
+  "count": 51,
+  "cases": [
+    {
+      "name": "zero move",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 0
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [],
+        "shiftCount": 0,
+        "conflicts": [],
+        "isDifferent": false,
+        "mode": "move",
+        "delta": 0,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "increase stay right edge +2",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "shrink stay right edge -3",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": -3
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-24",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": -3,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "shrink to minimum one night",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": -5
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-22",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": -5,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "reject zero-night stay",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": -6
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Minimum stay: 1 night"
+      }
+    },
+    {
+      "name": "extend left two nights",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-08",
+            "end": "2027-02-13",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-13",
+            "end": "2027-02-19",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-19",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea2",
+          "sea1"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "left",
+        "delta": -2,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "shrink left three nights",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": 3
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-24",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "left",
+        "delta": 3,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "reject invalid left shrink",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": 8
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Minimum stay: 1 night"
+      }
+    },
+    {
+      "name": "move into following",
+      "op": {
+        "kind": "stay",
+        "id": "sea2",
+        "mode": "move",
+        "delta": 4
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-19",
+            "end": "2027-02-25",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-25",
+            "end": "2027-03-03",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-03",
+            "end": "2027-03-10",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-10",
+            "end": "2027-03-19",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea2",
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 3,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 4,
+        "followers": null,
+        "linkedDelta": 4
+      }
+    },
+    {
+      "name": "move into preceding",
+      "op": {
+        "kind": "stay",
+        "id": "sea4",
+        "mode": "move",
+        "delta": -5
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-03-01",
+            "end": "2027-03-07",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-22",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-07",
+            "end": "2027-03-16",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea4",
+          "sea3",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -5,
+        "followers": null,
+        "linkedDelta": 1
+      }
+    },
+    {
+      "name": "move far before trip",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -27
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-01-25",
+            "end": "2027-01-31",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -27,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "move far after trip",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 50
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-04-12",
+            "end": "2027-04-18",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 50,
+        "followers": null,
+        "linkedDelta": 34
+      }
+    },
+    {
+      "name": "missing stay rejected",
+      "op": {
+        "kind": "stay",
+        "id": "missing",
+        "mode": "move",
+        "delta": 1
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Stay not found"
+      }
+    },
+    {
+      "name": "stay locked itself",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 2
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Unlock Luang Prabang to edit its dates"
+      }
+    },
+    {
+      "name": "leg locked itself",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -2
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Unlock the Southeast Asia leg to edit its stays"
+      }
+    },
+    {
+      "name": "locked next blocks collision",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 2
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Locked Hanoi occupies those dates. Move to an open range or unlock it."
+      }
+    },
+    {
+      "name": "locked previous blocks left extension",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -2
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Locked Siem Reap occupies those dates. Move to an open range or unlock it."
+      }
+    },
+    {
+      "name": "move earlier to free range before lock",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -27
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": true
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-01-25",
+            "end": "2027-01-31",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -27,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "move past lock to free range",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 38
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-03-31",
+            "end": "2027-04-06",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": true
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 38,
+        "followers": null,
+        "linkedDelta": 22
+      }
+    },
+    {
+      "name": "move with linked left",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-17",
+            "end": "2027-02-23",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-23",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea2",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "move with linked right",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-23",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "move with both sides linked",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-17",
+            "end": "2027-02-23",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-23",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea2",
+          "sea5"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "resize right moves right link only",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "resize left moves left link only",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-08",
+            "end": "2027-02-13",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-13",
+            "end": "2027-02-19",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-19",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea2",
+          "sea1"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "left",
+        "delta": -2,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "resize left with right link alone",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-08",
+            "end": "2027-02-13",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-13",
+            "end": "2027-02-19",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-19",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea2",
+          "sea1"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "left",
+        "delta": -2,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "resize right with left link alone",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "locked linked follower blocks move",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 3
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Locked Hanoi is linked to this edit. Unlink or unlock it."
+      }
+    },
+    {
+      "name": "locked linked predecessor blocks left resize",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "left",
+        "delta": -3
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Locked Siem Reap is linked to this edit. Unlink or unlock it."
+      }
+    },
+    {
+      "name": "linked group collision with unrelated",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -5
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-03-01",
+            "end": "2027-03-07",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-16",
+            "end": "2027-02-22",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-22",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-07",
+            "end": "2027-03-16",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea2",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -5,
+        "followers": null,
+        "linkedDelta": 1
+      }
+    },
+    {
+      "name": "linked pair into another linked pair",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -8
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-26",
+            "end": "2027-03-03",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-03-03",
+            "end": "2027-03-09",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-13",
+            "end": "2027-02-19",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-19",
+            "end": "2027-02-26",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-09",
+            "end": "2027-03-18",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea1",
+          "sea2",
+          "sea5"
+        ],
+        "shiftCount": 3,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -8,
+        "followers": null,
+        "linkedDelta": 3
+      }
+    },
+    {
+      "name": "three grouped stays colliding",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -7
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Unable to find a free placement without changing protected dates."
+      }
+    },
+    {
+      "name": "link past reorder independent ID",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": -12
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-15",
+            "end": "2027-02-20",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-03",
+            "end": "2027-02-09",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-09",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea2",
+          "sea1"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": -12,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "linked graph cycle already present",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "move",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-17",
+            "end": "2027-02-23",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-23",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea2",
+          "sea5"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "move",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "pre-existing overlap in source",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 3
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-24",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-03-02",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-02",
+            "end": "2027-03-09",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-09",
+            "end": "2027-03-18",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [
+          [
+            "sea2",
+            "sea3"
+          ]
+        ],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 3,
+        "followers": null,
+        "linkedDelta": 3
+      }
+    },
+    {
+      "name": "one-night Sunday start across week",
+      "op": {
+        "kind": "stay",
+        "id": "sea1",
+        "mode": "right",
+        "delta": 2
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-14",
+            "end": "2027-02-17",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-17",
+            "end": "2027-02-23",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-23",
+            "end": "2027-03-01",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-03-01",
+            "end": "2027-03-08",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-08",
+            "end": "2027-03-17",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea1",
+          "sea2",
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 4,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 2,
+        "followers": null,
+        "linkedDelta": 2
+      }
+    },
+    {
+      "name": "February March boundary",
+      "op": {
+        "kind": "stay",
+        "id": "sea4",
+        "mode": "right",
+        "delta": 9
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-15",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-15",
+            "end": "2027-03-24",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 1,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 9,
+        "followers": null,
+        "linkedDelta": 9
+      }
+    },
+    {
+      "name": "cross year boundary",
+      "op": {
+        "kind": "stay",
+        "id": "eu4",
+        "mode": "right",
+        "delta": -7
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "europe",
+        "valid": true,
+        "stays": [
+          {
+            "id": "eu4",
+            "start": "2026-12-26",
+            "end": "2027-01-02",
+            "locked": false
+          },
+          {
+            "id": "eu1",
+            "start": "2027-01-08",
+            "end": "2027-01-17",
+            "locked": false
+          },
+          {
+            "id": "eu2",
+            "start": "2027-01-17",
+            "end": "2027-01-22",
+            "locked": false
+          },
+          {
+            "id": "eu3",
+            "start": "2027-01-22",
+            "end": "2027-02-01",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "eu4"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": -7,
+        "followers": null,
+        "linkedDelta": 0
+      }
+    },
+    {
+      "name": "leap February boundary",
+      "op": {
+        "kind": "stay",
+        "id": "sea1",
+        "mode": "right",
+        "delta": 5
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-15",
+            "locked": false
+          },
+          {
+            "id": "sea1",
+            "start": "2028-02-26",
+            "end": "2028-03-06",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea1"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 5,
+        "followers": null,
+        "linkedDelta": 5
+      }
+    },
+    {
+      "name": "independent leg move",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 4
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-02-14",
+                "end": "2027-02-19",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-02-19",
+                "end": "2027-02-25",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-02-25",
+                "end": "2027-03-03",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-03-03",
+                "end": "2027-03-10",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-03-10",
+                "end": "2027-03-19",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-20",
+                "end": "2027-03-27",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-03-27",
+                "end": "2027-04-01",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-01",
+                "end": "2027-04-10",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-10",
+                "end": "2027-04-18",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-19",
+                "end": "2027-04-26",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-26",
+                "end": "2027-05-01",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-01",
+                "end": "2027-05-05",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [
+          "sea"
+        ],
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true
+      }
+    },
+    {
+      "name": "whole leg move backwards",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": -9
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-02-01",
+                "end": "2027-02-06",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-02-06",
+                "end": "2027-02-12",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-02-12",
+                "end": "2027-02-18",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-02-18",
+                "end": "2027-02-25",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-02-25",
+                "end": "2027-03-06",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-20",
+                "end": "2027-03-27",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-03-27",
+                "end": "2027-04-01",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-01",
+                "end": "2027-04-10",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-10",
+                "end": "2027-04-18",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-19",
+                "end": "2027-04-26",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-26",
+                "end": "2027-05-01",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-01",
+                "end": "2027-05-05",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [
+          "sea"
+        ],
+        "blocked": [],
+        "conflicts": [
+          [
+            "europe",
+            "sea"
+          ]
+        ],
+        "isDifferent": true
+      }
+    },
+    {
+      "name": "whole leg no delta",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 0
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-02-10",
+                "end": "2027-02-15",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-02-15",
+                "end": "2027-02-21",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-02-21",
+                "end": "2027-02-27",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-02-27",
+                "end": "2027-03-06",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-03-06",
+                "end": "2027-03-15",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-20",
+                "end": "2027-03-27",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-03-27",
+                "end": "2027-04-01",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-01",
+                "end": "2027-04-10",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-10",
+                "end": "2027-04-18",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-19",
+                "end": "2027-04-26",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-26",
+                "end": "2027-05-01",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-01",
+                "end": "2027-05-05",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [],
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": false
+      }
+    },
+    {
+      "name": "linked legs shift together",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 7
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": "japan",
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-02-17",
+                "end": "2027-02-22",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-02-22",
+                "end": "2027-02-28",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-02-28",
+                "end": "2027-03-06",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-03-06",
+                "end": "2027-03-13",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-03-13",
+                "end": "2027-03-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-27",
+                "end": "2027-04-03",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-04-03",
+                "end": "2027-04-08",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-08",
+                "end": "2027-04-17",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-17",
+                "end": "2027-04-25",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-19",
+                "end": "2027-04-26",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-26",
+                "end": "2027-05-01",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-01",
+                "end": "2027-05-05",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [
+          "sea",
+          "japan"
+        ],
+        "blocked": [],
+        "conflicts": [
+          [
+            "japan",
+            "taiwan"
+          ]
+        ],
+        "isDifferent": true
+      }
+    },
+    {
+      "name": "linked multi-leg chain",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 3
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": "japan",
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-02-13",
+                "end": "2027-02-18",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-02-18",
+                "end": "2027-02-24",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-02-24",
+                "end": "2027-03-02",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-03-02",
+                "end": "2027-03-09",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-03-09",
+                "end": "2027-03-18",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": "taiwan",
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-23",
+                "end": "2027-03-30",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-03-30",
+                "end": "2027-04-04",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-04",
+                "end": "2027-04-13",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-13",
+                "end": "2027-04-21",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-22",
+                "end": "2027-04-29",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-29",
+                "end": "2027-05-04",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-04",
+                "end": "2027-05-08",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [
+          "sea",
+          "japan",
+          "taiwan"
+        ],
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true
+      }
+    },
+    {
+      "name": "locked linked leg refuses move",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 5
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Japan is locked. Unlock or unlink it before moving this group."
+      }
+    },
+    {
+      "name": "locked stay inside leg refuses whole move",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 4
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Southeast Asia contains locked dates. Unlock the stay before moving the whole leg."
+      }
+    },
+    {
+      "name": "linked cycle refuses move",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 4
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Linked legs contain a loop. Unlink one of the legs."
+      }
+    },
+    {
+      "name": "move leg into another unlinked leg",
+      "op": {
+        "kind": "leg",
+        "id": "sea",
+        "delta": 35
+      },
+      "expected": {
+        "kind": "leg",
+        "valid": true,
+        "legs": [
+          {
+            "id": "europe",
+            "start": "2027-01-08",
+            "end": "2027-02-09",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "eu1",
+                "start": "2027-01-08",
+                "end": "2027-01-17",
+                "locked": false
+              },
+              {
+                "id": "eu2",
+                "start": "2027-01-17",
+                "end": "2027-01-22",
+                "locked": false
+              },
+              {
+                "id": "eu3",
+                "start": "2027-01-22",
+                "end": "2027-02-01",
+                "locked": false
+              },
+              {
+                "id": "eu4",
+                "start": "2027-02-01",
+                "end": "2027-02-09",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "sea",
+            "start": "2027-02-10",
+            "end": "2027-03-15",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "sea1",
+                "start": "2027-03-17",
+                "end": "2027-03-22",
+                "locked": false
+              },
+              {
+                "id": "sea2",
+                "start": "2027-03-22",
+                "end": "2027-03-28",
+                "locked": false
+              },
+              {
+                "id": "sea3",
+                "start": "2027-03-28",
+                "end": "2027-04-03",
+                "locked": false
+              },
+              {
+                "id": "sea4",
+                "start": "2027-04-03",
+                "end": "2027-04-10",
+                "locked": false
+              },
+              {
+                "id": "sea5",
+                "start": "2027-04-10",
+                "end": "2027-04-19",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "japan",
+            "start": "2027-03-20",
+            "end": "2027-04-18",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "jp1",
+                "start": "2027-03-20",
+                "end": "2027-03-27",
+                "locked": false
+              },
+              {
+                "id": "jp2",
+                "start": "2027-03-27",
+                "end": "2027-04-01",
+                "locked": false
+              },
+              {
+                "id": "jp3",
+                "start": "2027-04-01",
+                "end": "2027-04-10",
+                "locked": false
+              },
+              {
+                "id": "jp4",
+                "start": "2027-04-10",
+                "end": "2027-04-18",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "taiwan",
+            "start": "2027-04-19",
+            "end": "2027-05-05",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "tw1",
+                "start": "2027-04-19",
+                "end": "2027-04-26",
+                "locked": false
+              },
+              {
+                "id": "tw2",
+                "start": "2027-04-26",
+                "end": "2027-05-01",
+                "locked": false
+              },
+              {
+                "id": "tw3",
+                "start": "2027-05-01",
+                "end": "2027-05-05",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "california",
+            "start": "2027-05-08",
+            "end": "2027-05-22",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "ca1",
+                "start": "2027-05-08",
+                "end": "2027-05-13",
+                "locked": false
+              },
+              {
+                "id": "ca2",
+                "start": "2027-05-13",
+                "end": "2027-05-18",
+                "locked": false
+              },
+              {
+                "id": "ca3",
+                "start": "2027-05-18",
+                "end": "2027-05-22",
+                "locked": false
+              }
+            ]
+          },
+          {
+            "id": "pnw",
+            "start": "2027-05-24",
+            "end": "2027-06-17",
+            "linkedTo": null,
+            "scenario": [
+              {
+                "id": "pn1",
+                "start": "2027-05-24",
+                "end": "2027-06-01",
+                "locked": false
+              },
+              {
+                "id": "pn2",
+                "start": "2027-06-01",
+                "end": "2027-06-09",
+                "locked": false
+              },
+              {
+                "id": "pn3",
+                "start": "2027-06-09",
+                "end": "2027-06-17",
+                "locked": false
+              }
+            ]
+          }
+        ],
+        "changedIds": [
+          "sea"
+        ],
+        "blocked": [],
+        "conflicts": [
+          [
+            "sea",
+            "japan"
+          ]
+        ],
+        "isDifferent": true
+      }
+    },
+    {
+      "name": "missing leg rejected",
+      "op": {
+        "kind": "leg",
+        "id": "gone",
+        "delta": 5
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Leg not found"
+      }
+    },
+    {
+      "name": "end boundary resize with leg link",
+      "op": {
+        "kind": "stay",
+        "id": "sea5",
+        "mode": "right",
+        "delta": 8
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-27",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-27",
+            "end": "2027-03-06",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-06",
+            "end": "2027-03-23",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea5"
+        ],
+        "shiftCount": 0,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 8,
+        "followers": {
+          "valid": true,
+          "legs": [
+            {
+              "id": "europe",
+              "start": "2027-01-08",
+              "end": "2027-02-09",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "eu1",
+                  "start": "2027-01-08",
+                  "end": "2027-01-17",
+                  "locked": false
+                },
+                {
+                  "id": "eu2",
+                  "start": "2027-01-17",
+                  "end": "2027-01-22",
+                  "locked": false
+                },
+                {
+                  "id": "eu3",
+                  "start": "2027-01-22",
+                  "end": "2027-02-01",
+                  "locked": false
+                },
+                {
+                  "id": "eu4",
+                  "start": "2027-02-01",
+                  "end": "2027-02-09",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "sea",
+              "start": "2027-02-10",
+              "end": "2027-03-15",
+              "linkedTo": "japan",
+              "scenario": [
+                {
+                  "id": "sea1",
+                  "start": "2027-02-10",
+                  "end": "2027-02-15",
+                  "locked": false
+                },
+                {
+                  "id": "sea2",
+                  "start": "2027-02-15",
+                  "end": "2027-02-21",
+                  "locked": false
+                },
+                {
+                  "id": "sea3",
+                  "start": "2027-02-21",
+                  "end": "2027-02-27",
+                  "locked": false
+                },
+                {
+                  "id": "sea4",
+                  "start": "2027-02-27",
+                  "end": "2027-03-06",
+                  "locked": false
+                },
+                {
+                  "id": "sea5",
+                  "start": "2027-03-06",
+                  "end": "2027-03-15",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "japan",
+              "start": "2027-03-20",
+              "end": "2027-04-18",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "jp1",
+                  "start": "2027-03-28",
+                  "end": "2027-04-04",
+                  "locked": false
+                },
+                {
+                  "id": "jp2",
+                  "start": "2027-04-04",
+                  "end": "2027-04-09",
+                  "locked": false
+                },
+                {
+                  "id": "jp3",
+                  "start": "2027-04-09",
+                  "end": "2027-04-18",
+                  "locked": false
+                },
+                {
+                  "id": "jp4",
+                  "start": "2027-04-18",
+                  "end": "2027-04-26",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "taiwan",
+              "start": "2027-04-19",
+              "end": "2027-05-05",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "tw1",
+                  "start": "2027-04-19",
+                  "end": "2027-04-26",
+                  "locked": false
+                },
+                {
+                  "id": "tw2",
+                  "start": "2027-04-26",
+                  "end": "2027-05-01",
+                  "locked": false
+                },
+                {
+                  "id": "tw3",
+                  "start": "2027-05-01",
+                  "end": "2027-05-05",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "california",
+              "start": "2027-05-08",
+              "end": "2027-05-22",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "ca1",
+                  "start": "2027-05-08",
+                  "end": "2027-05-13",
+                  "locked": false
+                },
+                {
+                  "id": "ca2",
+                  "start": "2027-05-13",
+                  "end": "2027-05-18",
+                  "locked": false
+                },
+                {
+                  "id": "ca3",
+                  "start": "2027-05-18",
+                  "end": "2027-05-22",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "pnw",
+              "start": "2027-05-24",
+              "end": "2027-06-17",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "pn1",
+                  "start": "2027-05-24",
+                  "end": "2027-06-01",
+                  "locked": false
+                },
+                {
+                  "id": "pn2",
+                  "start": "2027-06-01",
+                  "end": "2027-06-09",
+                  "locked": false
+                },
+                {
+                  "id": "pn3",
+                  "start": "2027-06-09",
+                  "end": "2027-06-17",
+                  "locked": false
+                }
+              ]
+            }
+          ],
+          "changedIds": [
+            "japan"
+          ],
+          "blocked": [],
+          "conflicts": [
+            [
+              "japan",
+              "taiwan"
+            ]
+          ],
+          "isDifferent": true
+        },
+        "linkedDelta": 8
+      }
+    },
+    {
+      "name": "end boundary resize with linked locked leg",
+      "op": {
+        "kind": "stay",
+        "id": "sea5",
+        "mode": "right",
+        "delta": 8
+      },
+      "expected": {
+        "valid": false,
+        "reason": "Japan is locked. Unlock or unlink it before moving this group."
+      }
+    },
+    {
+      "name": "end boundary does not move following leg when buffer remains",
+      "op": {
+        "kind": "stay",
+        "id": "sea3",
+        "mode": "right",
+        "delta": 1
+      },
+      "expected": {
+        "kind": "stay",
+        "legId": "sea",
+        "valid": true,
+        "stays": [
+          {
+            "id": "sea1",
+            "start": "2027-02-10",
+            "end": "2027-02-15",
+            "locked": false
+          },
+          {
+            "id": "sea2",
+            "start": "2027-02-15",
+            "end": "2027-02-21",
+            "locked": false
+          },
+          {
+            "id": "sea3",
+            "start": "2027-02-21",
+            "end": "2027-02-28",
+            "locked": false
+          },
+          {
+            "id": "sea4",
+            "start": "2027-02-28",
+            "end": "2027-03-07",
+            "locked": false
+          },
+          {
+            "id": "sea5",
+            "start": "2027-03-07",
+            "end": "2027-03-16",
+            "locked": false
+          }
+        ],
+        "changedIds": [
+          "sea3",
+          "sea4",
+          "sea5"
+        ],
+        "shiftCount": 2,
+        "blocked": [],
+        "conflicts": [],
+        "isDifferent": true,
+        "mode": "right",
+        "delta": 1,
+        "followers": {
+          "valid": true,
+          "legs": [
+            {
+              "id": "europe",
+              "start": "2027-01-08",
+              "end": "2027-02-09",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "eu1",
+                  "start": "2027-01-08",
+                  "end": "2027-01-17",
+                  "locked": false
+                },
+                {
+                  "id": "eu2",
+                  "start": "2027-01-17",
+                  "end": "2027-01-22",
+                  "locked": false
+                },
+                {
+                  "id": "eu3",
+                  "start": "2027-01-22",
+                  "end": "2027-02-01",
+                  "locked": false
+                },
+                {
+                  "id": "eu4",
+                  "start": "2027-02-01",
+                  "end": "2027-02-09",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "sea",
+              "start": "2027-02-10",
+              "end": "2027-03-15",
+              "linkedTo": "japan",
+              "scenario": [
+                {
+                  "id": "sea1",
+                  "start": "2027-02-10",
+                  "end": "2027-02-15",
+                  "locked": false
+                },
+                {
+                  "id": "sea2",
+                  "start": "2027-02-15",
+                  "end": "2027-02-21",
+                  "locked": false
+                },
+                {
+                  "id": "sea3",
+                  "start": "2027-02-21",
+                  "end": "2027-02-27",
+                  "locked": false
+                },
+                {
+                  "id": "sea4",
+                  "start": "2027-02-27",
+                  "end": "2027-03-06",
+                  "locked": false
+                },
+                {
+                  "id": "sea5",
+                  "start": "2027-03-06",
+                  "end": "2027-03-15",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "japan",
+              "start": "2027-03-20",
+              "end": "2027-04-18",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "jp1",
+                  "start": "2027-03-21",
+                  "end": "2027-03-28",
+                  "locked": false
+                },
+                {
+                  "id": "jp2",
+                  "start": "2027-03-28",
+                  "end": "2027-04-02",
+                  "locked": false
+                },
+                {
+                  "id": "jp3",
+                  "start": "2027-04-02",
+                  "end": "2027-04-11",
+                  "locked": false
+                },
+                {
+                  "id": "jp4",
+                  "start": "2027-04-11",
+                  "end": "2027-04-19",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "taiwan",
+              "start": "2027-04-19",
+              "end": "2027-05-05",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "tw1",
+                  "start": "2027-04-19",
+                  "end": "2027-04-26",
+                  "locked": false
+                },
+                {
+                  "id": "tw2",
+                  "start": "2027-04-26",
+                  "end": "2027-05-01",
+                  "locked": false
+                },
+                {
+                  "id": "tw3",
+                  "start": "2027-05-01",
+                  "end": "2027-05-05",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "california",
+              "start": "2027-05-08",
+              "end": "2027-05-22",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "ca1",
+                  "start": "2027-05-08",
+                  "end": "2027-05-13",
+                  "locked": false
+                },
+                {
+                  "id": "ca2",
+                  "start": "2027-05-13",
+                  "end": "2027-05-18",
+                  "locked": false
+                },
+                {
+                  "id": "ca3",
+                  "start": "2027-05-18",
+                  "end": "2027-05-22",
+                  "locked": false
+                }
+              ]
+            },
+            {
+              "id": "pnw",
+              "start": "2027-05-24",
+              "end": "2027-06-17",
+              "linkedTo": null,
+              "scenario": [
+                {
+                  "id": "pn1",
+                  "start": "2027-05-24",
+                  "end": "2027-06-01",
+                  "locked": false
+                },
+                {
+                  "id": "pn2",
+                  "start": "2027-06-01",
+                  "end": "2027-06-09",
+                  "locked": false
+                },
+                {
+                  "id": "pn3",
+                  "start": "2027-06-09",
+                  "end": "2027-06-17",
+                  "locked": false
+                }
+              ]
+            }
+          ],
+          "changedIds": [
+            "japan"
+          ],
+          "blocked": [],
+          "conflicts": [],
+          "isDifferent": true
+        },
+        "linkedDelta": 1
+      }
+    }
+  ]
+}

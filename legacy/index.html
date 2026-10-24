@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f8fb" />
+  <meta name="description" content="Travel Canvas — visually design travel with a calendar and a map." />
+  <title>Travel Canvas v0.9 · Visual journey planner</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="i-map" viewBox="0 0 24 24"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Zm6-3v15m6-12v15"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 10h18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h9a7 7 0 0 1 0 14"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5m5 5h-9a7 7 0 0 0 0 14"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h5a5 5 0 0 0 5-5v-5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2m3 0-1 15H6L5 6m5 4v7m4-7v7"/></symbol>
+    <symbol id="i-world" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18M12 3c-5 5-5 13 0 18"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M21 3 3 11l7 3 3 7 8-18ZM10 14l4-4"/></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="15" rx="3"/><path d="M5 12h14M8 21l2-3m6 0 2 3M9 7h.01M15 7h.01"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="m5 16-1 3h2m13-3 1 3h-2M4 10l2-5h12l2 5M3 10h18v7H3z"/><circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/></symbol>
+    <symbol id="i-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4M8 15c-2-2-3-3-3-6a7 7 0 0 1 14 0c0 3-1 4-3 6l-1 3H9l-1-3Z"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M7 4v6a3 3 0 0 0 3 3h4a3 3 0 0 1 3 3v4M7 20v-4a3 3 0 0 1 3-3"/><circle cx="7" cy="4" r="2"/><circle cx="7" cy="20" r="2"/><circle cx="17" cy="20" r="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 15a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7M15 9a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+    <symbol id="i-unlink" viewBox="0 0 24 24"><path d="M9 15a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-.5-7.5M15 9a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 .5 7.5M3 3l18 18"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup"><div class="brand-icon"><svg viewBox="0 0 40 40"><path d="M3 31 15 10l7 11 6-8 9 18H3Z" fill="#fff" opacity=".95"/><path d="m8 24 7-14 5 9-4-3-5 8Z" fill="#cde9f5"/></svg></div><div><div class="brand-title">Travel Canvas</div><div class="brand-subtitle">DESIGN YOUR JOURNEY</div></div></div>
+      <div class="topbar-divider"></div>
+      <div class="journey-heading"><input id="journeyTitle" class="journey-title" spellcheck="false" aria-label="Journey name" /><div id="journeyMeta" class="journey-meta"></div></div>
+      <div class="topbar-actions">
+        <span class="save-indicator" id="saveIndicator"><span class="save-dot"></span><span id="saveLabel">Saved locally</span></span>
+        <button class="icon-button" id="undoBtn" title="Undo (Ctrl+Z)" aria-label="Undo"><svg><use href="#i-undo"/></svg></button>
+        <button class="icon-button" id="redoBtn" title="Redo (Ctrl+Shift+Z)" aria-label="Redo"><svg><use href="#i-redo"/></svg></button>
+        <button class="button button-outline top-action" id="variantsBtn"><svg><use href="#i-copy"/></svg><span>Plans</span></button>
+        <button class="button button-primary top-action" id="addLegBtn"><svg><use href="#i-plus"/></svg><span>New leg</span></button>
+      </div>
+    </header>
+
+    <section class="journey-ribbon is-collapsed" id="journeyRibbon" aria-label="Journey legs overview"><div class="ribbon-header"><span class="eyebrow" id="ribbonEyebrow">LEG CONNECTIONS</span><div class="ribbon-links"><span id="journeySpanText"></span><button type="button" id="ribbonToggle" class="quiet-link" aria-expanded="false" aria-controls="ribbonBars">Show timeline</button><button id="overviewQuick" class="quiet-link">View journey <svg><use href="#i-arrow"/></svg></button></div></div><div class="ribbon-bars" id="ribbonBars"></div><div class="ribbon-labels" id="ribbonLabels"></div><div class="chain-head"><span>LEG MOVEMENT</span><small>Link legs to move together · lock to anchor dates</small></div><div class="leg-chain" id="legChain" aria-label="Leg links and date locks"></div></section>
+
+    <div class="mobile-tabs" role="tablist"><button id="mobileCalendar" class="mobile-tab active" type="button"><svg><use href="#i-calendar"/></svg> Calendar</button><button id="mobileMap" class="mobile-tab" type="button"><svg><use href="#i-map"/></svg> Map</button></div>
+
+    <main class="workspace" id="workspace">
+      <section class="panel calendar-panel" id="calendarPanel" aria-label="Travel calendar">
+        <div class="panel-toolbar calendar-toolbar"><div class="calendar-toolbar-start"><div class="scope-toggle" role="group" aria-label="Calendar scope"><button id="overviewModeBtn" type="button" title="Move whole leg blocks">Legs</button><button id="journeyModeBtn" type="button" title="All stays across every leg">Journey</button><button id="legModeBtn" type="button">Leg focus</button></div><div class="scope-select"><label for="legSelect">Leg</label><select id="legSelect" aria-label="Active leg"></select></div></div><div class="calendar-toolbar-end"><div class="scope-select"><label for="legVersionSelect">Scenario</label><select id="legVersionSelect" aria-label="Active leg scenario"></select></div><button class="icon-button mini" id="duplicateLegBtn" title="Duplicate leg scenario" aria-label="Duplicate leg scenario"><svg><use href="#i-copy"/></svg></button></div></div>
+        <div class="calendar-help"><svg><use href="#i-info"/></svg><span id="calendarHelp">Drag stays to edit; drag across empty calendar dates to add. Unlocked stays make room on overlap; links keep chosen stays together; locks protect dates.</span></div>
+        <div class="calendar-scroll" id="calendarScroll"><div id="calendarRoot"></div></div><div class="mobile-edit-strip" id="mobileEditStrip" aria-label="Selected stay quick edit controls"></div>
+        <div class="ideas-tray"><div class="ideas-head"><div class="ideas-title"><svg><use href="#i-lightbulb"/></svg><span>Unscheduled ideas</span><span class="ideas-count" id="ideasCount">0</span></div><div class="ideas-actions"><button class="quiet-link" id="addIdeaBtn">+ Add idea</button><button class="icon-button mini" id="ideasToggle" title="Collapse ideas"><svg><use href="#i-chevron"/></svg></button></div></div><div class="idea-cards" id="ideasCards"></div></div>
+      </section>
+
+      <aside class="right-panel" id="rightPanel" aria-label="Map and selection details">
+        <section class="panel map-panel"><div class="map-toolbar"><div><div class="eyebrow">GEOGRAPHY</div><div class="map-title">Route map <span class="map-mode-name" id="mapContext">Southeast Asia</span></div></div><div class="base-toggle" role="group" aria-label="Map layer"><button id="vectorMapBtn" type="button" class="active">Atlas</button><button id="streetMapBtn" type="button">Streets</button></div></div>
+          <div class="map-viewport" id="mapViewport" role="application" aria-label="Zoomable, pannable route map. Click empty map to create a place.">
+            <div class="map-water" aria-hidden="true"></div><div class="map-tiles" id="mapTiles" aria-hidden="true"></div>
+            <svg id="mapSvg" class="map-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><marker id="mapArrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#6c8ea3"/></marker></defs><g id="mapWorld"></g><g id="mapRoutes"></g></svg>
+            <div class="map-pin-layer" id="mapPins"></div>
+            <div class="map-controls"><button class="map-control" id="mapZoomIn" title="Zoom in"><svg><use href="#i-plus"/></svg></button><button class="map-control" id="mapZoomOut" title="Zoom out"><svg><use href="#i-minus"/></svg></button></div>
+            <div class="map-fit-actions"><button id="fitJourney" class="fit-button">Fit journey</button><button id="fitLeg" class="fit-button">Fit leg</button><button id="fitStay" class="fit-button">Fit stay</button></div>
+            <div class="map-attribution" id="mapAttribution">Coastlines © <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a></div>
+            <div class="map-popup hidden" id="mapPopup"><div class="popup-title">Add a place here</div><input class="text-input" id="mapPlaceName" placeholder="Name this destination" aria-label="Name this map location" maxlength="90"/><div class="popup-actions"><button class="button button-soft" id="mapSaveIdea">Save idea</button><button class="button button-primary" id="mapAddStay">Add stay</button></div></div>
+          </div>
+          <div class="map-footer"><span><svg><use href="#i-route"/></svg> Connections show intended travel sequence, not verified routes.</span><button class="quiet-link" id="mapTipBtn">Map tips</button></div>
+        </section>
+        <section class="panel details-panel" id="detailsPanel"><div class="details-overline"><span class="eyebrow">SELECTION</span><button class="quiet-link" id="clearSelection">Clear</button></div><div id="detailsRoot"></div></section>
+      </aside>
+    </main>
+  </div>
+
+  <div id="searchDrawer" class="search-drawer hidden" role="dialog" aria-label="Find a destination" aria-modal="true"><div class="drawer-scrim" id="drawerScrim"></div><div class="drawer-sheet"><div class="drawer-head"><div><div class="eyebrow">PLACE SEARCH</div><h2>Add somewhere new</h2><p>Search included cities, or click the map to place a custom location.</p></div><button class="icon-button" id="closeSearch" title="Close search"><svg><use href="#i-x"/></svg></button></div><div class="search-row"><svg><use href="#i-search"/></svg><input id="placeQuery" placeholder="Search destinations e.g. Kyoto" autofocus aria-label="Search destinations"/><button class="button button-primary" id="searchWorldBtn">Search world</button></div><div class="search-info" id="searchInfo">Type a name for instant local matches. “Search world” makes a single online map lookup when hosted over HTTP.</div><div id="placeResults" class="search-results"></div></div></div>
+  <div id="versionsDrawer" class="search-drawer hidden" role="dialog" aria-label="Versions and scenarios" aria-modal="true"><div class="drawer-scrim" id="versionsScrim"></div><div class="drawer-sheet versions-sheet"><div class="drawer-head"><div><div class="eyebrow">DESIGN ALTERNATIVES</div><h2>Plans & versions</h2><p>Create, switch, rename, compare and delete plans and leg versions.</p></div><button class="icon-button" id="closeVersions" title="Close versions"><svg><use href="#i-x"/></svg></button></div><div id="versionsBody"></div></div></div>
+  <div id="legDrawer" class="search-drawer hidden" role="dialog" aria-label="Create a journey leg" aria-modal="true"><div class="drawer-scrim" id="legScrim"></div><div class="drawer-sheet small-sheet"><div class="drawer-head"><div><div class="eyebrow">ADD LEG</div><h2>Create a trip leg</h2><p>A leg is a distinct part of your larger journey, often 1–8 weeks.</p></div><button class="icon-button" id="closeLegDrawer"><svg><use href="#i-x"/></svg></button></div><form id="legForm"><label class="form-label">Leg name<input class="text-input" id="legNameInput" required placeholder="e.g. Australia" maxlength="80" /></label><div class="form-two"><label class="form-label">Earliest date<input type="date" class="text-input" id="legStartInput" required /></label><label class="form-label">End date<input type="date" class="text-input" id="legEndInput" required /></label></div><div id="legFormError" class="form-error" role="alert"></div><button type="submit" class="button button-primary full-button">Create leg</button></form></div></div>
+  <div id="quickAdd" class="quick-add hidden" role="dialog" aria-label="Name the new destination"><div class="quick-add-head"><div><strong>New destination</strong><small id="quickRangeLabel"></small></div><button id="quickAddCancel" class="icon-button mini" title="Cancel new stay"><svg><use href="#i-x"/></svg></button></div><div class="quick-add-input"><svg><use href="#i-search"/></svg><input id="quickSearch" placeholder="Search for a destination" aria-label="Search a destination for the selected dates" autocomplete="off" /></div><div id="quickMatches" class="quick-matches"></div><div id="quickIdeas" class="quick-ideas"></div><button class="quiet-link" id="quickExpandSearch">Search more places…</button></div>
+  <div class="edit-review hidden" id="editReview" role="status" aria-live="polite"></div>
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+  <script src="world.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
